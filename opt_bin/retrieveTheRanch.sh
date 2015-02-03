@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 CMDS="hub jq curl git"
 for i in $CMDS
 do
@@ -15,10 +19,7 @@ if [ -d ${RANCH_HOME:?"Is is not set. Please set it."} ]; then
             echo You already have rancherio/$i
             if [ "$1" == "update" ]; then
                 cd $i
-                branchPrev=$(git branch)
-                hub checkout master && hub pull
-                hub checkout $branchPrev
-                unset branchPrev
+                git fetch --all
                 cd ..
             fi
         fi
