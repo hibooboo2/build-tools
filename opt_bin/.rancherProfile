@@ -1,6 +1,6 @@
 export LIQUIBASE_HOME=$(find /usr/local/Cellar/liquibase -name libexec)
 export RANCH_HOME="$HOME/code/"
-export FARMER_TOOLS="$HOME/code/build-tools/bin"
+export FARMER_TOOLS="$HOME/build-tools/bin"
 export SPY_HOME="$HOME/code/python-agent"
 export PATH="${PATH}:${FARMER_TOOLS}"
 export HOST_API_ROOT="$RANCH_HOME/host-api"
@@ -14,6 +14,7 @@ export CATTLE_HOME=$HOME/cattle-home
 export CATTLE_ROOT="$HOME/code/cattle"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 export Build_Tools="$HOME/code/build-tools/bin"
+
 alias dockerPurge='docker rm -fv $(docker ps -qa);docker ps -a'
 alias moo="cd $CATTLE_ROOT"
 alias mooGo="cd $HOST_API_ROOT"
