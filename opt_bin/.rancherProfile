@@ -1,8 +1,9 @@
 export LIQUIBASE_HOME=$(find /usr/local/Cellar/liquibase -name libexec)
 export RANCH_HOME="$HOME/code/"
 export FARMER_TOOLS="$HOME/build-tools/bin"
+export FARMER_TOOLS_OPT="$HOME/build-tools/opt_bin"
 export SPY_HOME="$HOME/code/python-agent"
-export PATH="${PATH}:${FARMER_TOOLS}"
+export PATH="${PATH}:${FARMER_TOOLS}:${FARMER_TOOLS_OPT}"
 export HOST_API_ROOT="$RANCH_HOME/host-api"
 $(boot2docker shellinit)
 
