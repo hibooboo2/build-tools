@@ -1,7 +1,10 @@
 #!/bin/bash
 
+set -e
+
+cd $(dirname $0)/
+./safteyChecks.sh
+
+echo Stopped
 cd $CATTLE_ROOT
-git branch
-git status
-git checkout master
-git fetch ranch
+git fetch --all

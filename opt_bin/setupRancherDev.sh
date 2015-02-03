@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+cd $(dirname $0)/
 
 function blowUpAndDownloadCattle(){
     if [ -d "${CATTLE_ROOT}" ];then

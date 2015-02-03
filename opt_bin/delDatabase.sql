@@ -1,0 +1,3 @@
+
+DROP DATABASE IF EXISTS cattle;
+DROP DATABASE IF EXISTS cattle_base;
