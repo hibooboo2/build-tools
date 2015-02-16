@@ -3,6 +3,7 @@
 set -e
 
 CMDS="hub jq curl git"
+
 for i in $CMDS
 do
         # command -v will return >0 when the $i is not found
