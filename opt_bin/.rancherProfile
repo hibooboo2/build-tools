@@ -1,9 +1,11 @@
+#!/bin/bash
+
 export LIQUIBASE_HOME=$(find /usr/local/Cellar/liquibase -name libexec)
-export RANCH_HOME="$HOME/code/"
+export RANCH_HOME="$HOME/code/rancherio"
 export FARMER_TOOLS="$HOME/build-tools/bin"
 export ACRE_RANCH="$RANCH_HOME/10acre-ranch/bin"
 export FARMER_TOOLS_OPT="$HOME/build-tools/opt_bin"
-export SPY_HOME="$HOME/code/python-agent"
+export SPY_HOME="$RANCH_HOME/python-agent"
 export PATH="${PATH}:${FARMER_TOOLS}:${FARMER_TOOLS_OPT}:${ACRE_RANCH}"
 export HOST_API_ROOT="$RANCH_HOME/host-api"
 $(boot2docker shellinit)
@@ -13,9 +15,9 @@ export CATTLE_HOME=$HOME/cattle-home
 [[ ! -d "${CATTLE_HOME}" ]] && mkdir $CATTLE_HOME
 
 
-export CATTLE_ROOT="$HOME/code/cattle"
+export CATTLE_ROOT="$RANCH_HOME/cattle"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-export Build_Tools="$HOME/code/build-tools/bin"
+export Build_Tools="$RANCH_HOME/build-tools/bin"
 
 alias dockerPurge='docker rm -fv $(docker ps -qa)'
 alias dockerClean='docker rmi $(docker images -q -f dangling=true)'

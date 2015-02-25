@@ -10,20 +10,18 @@ do
 	which $i >/dev/null && continue || { echo "$i command not found."; exit 1; }
 done
 if [ -d ${RANCH_HOME:?"Is is not set. Please set it."} ]; then
-    [[ -f ".youhaveTheRanch" ]] && echo please Delete $RANCH_HOME.youhaveTheRanch && exit 1
-    cd $RANCH_HOME
-    for i in $(curl https://api.github.com/orgs/rancherio/repos | jq -r .[].name)
+    cd ${RANCH_HOME}
+    for i in $(curl -# https://api.github.com/orgs/rancherio/repos | jq -r .[].name)
     do 
-        if [ ! -d "./$i" ]; then
-            hub clone rancherio/$i >/dev/null && echo Cloned $i
+        if [ ! -d "${RANCH_HOME}/$i" ]; then
+            hub clone ${RANCH_HOME}/$i >/dev/null && echo Cloned $i
         else
             echo You already have rancherio/$i
             if [ "$1" == "update" ]; then
-                cd $i
+                echo ${RANCH_HOME}/$i
+                cd ${RANCH_HOME}/$i
                 git fetch --all
-                cd ..
             fi
         fi
-        touch .youHaveTheRanch
     done
 fi
