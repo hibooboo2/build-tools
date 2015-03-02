@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 cd $(dirname $0)/
 ./safteyChecks.sh
 
@@ -12,4 +10,5 @@ rancher_agent_state=${rancher_agent_state:0:12}
 
 remove=$(docker ps -qa | grep -v ${rancher_agent} | grep -v ${rancher_agent_state})
 
-[[ ! -z "${remove}" ]] && docker rm -fv ${remove}
+[[ -z "${1}" ]] && [[ ! -z "${remove}" ]] && docker rm -fv ${remove}
+[[ "${1}" == "-a" ]] && docker rm -fv $(docker ps -qa)
