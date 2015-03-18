@@ -29,7 +29,8 @@ alias rancherAgent="$CATTLE_ROOT/tools/development/register-boot2docker.sh; slee
 alias cleanDB="$CATTLE_ROOT/resources/content/db/mysql/drop_tables.sh"
 alias goCloud="gcloud --project rancher-dev compute ssh james-instance-10acre-master-0"
 alias openCloud="open http://$(gce-10acre-ranch -c james-instance -i):8080"
-
+alias jooq="${CATTLE_ROOT}/code/iaas/model/codegen.sh"
+alias liquibaseDump="${CATTLE_ROOT}/resources/content/db/liquibase-dump.sh"
 
 function goCloud(){
     gcloud --project rancher-dev compute ssh james-instance-10acre-master-0

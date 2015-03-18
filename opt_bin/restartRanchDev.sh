@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -e
+set -ex
 
 cd $(dirname $0)/
 ./safteyChecks.sh
@@ -16,7 +16,6 @@ rm -rf .venv
 rm -rf .tox
 virtualenv .venv 1> /dev/null
 . .venv/bin/activate 1> /dev/null
-pip install -r test-requirements.txt 1> /dev/null
 pip install -r requirements.txt 1> /dev/null
 pip install tox 1> /dev/null 
 $CATTLE_ROOT/tools/development/register-boot2docker.sh
