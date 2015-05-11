@@ -14,7 +14,10 @@ if [ -d ${RANCH_HOME:?"Is is not set. Please set it."} ]; then
     for i in $(curl -# https://api.github.com/orgs/rancherio/repos | jq -r .[].name)
     do 
         if [ ! -d "${RANCH_HOME}/$i" ]; then
-            hub clone ${RANCH_HOME}/$i >/dev/null && echo Cloned $i
+            if [ "$1" == "pull" ]; then
+                cd ${RANCH_HOME}
+                hub clone rancherio/$i >/dev/null && echo Cloned $i
+            fi
         else
             echo You already have rancherio/$i
             if [ "$1" == "update" ]; then
